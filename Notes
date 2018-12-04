@@ -1,4 +1,5 @@
 These features doesn't really matter, and does not contribute much to our predictions. So, these can be removed:
     > Passenger name
+    > Passenger ID
     > Ticket Number or Details
-    >
+    > Cabin (out of 891 training sets, 687 are missing - also, this doesn't have a big impact on prediction)
