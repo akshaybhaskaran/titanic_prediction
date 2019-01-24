@@ -38,7 +38,6 @@ test_X['Fare'].fillna(test_X['Fare'].mean(), inplace=True)
 model = LogisticRegression()
 model.fit(train_X, train_y)
 prediction = model.predict(test_X)
+print(prediction)
 
-'''make the model more generic instead of directly giving the column names
-tweak the model's default parameters to see a change in predictions
-find out the accuracy of the classifier'''
+
