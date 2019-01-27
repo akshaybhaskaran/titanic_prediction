@@ -52,26 +52,26 @@ prediction: (418 x 1)
 
 
 
+'''
+To-Do
+1. Encode all text values to numerical
+2. Select appropriate models
+3. Fit the model and train it using Training Data
+4. Predict the values on Test Data
+'''
 
 
-
-'''print(train_X['Embarked'])
+'''
 # Encoding the 'Sex' and 'Embarked' Columns to base everything with Integers
 label_enc = LabelEncoder()
 train_X['Sex'] = label_enc.fit_transform(train_X['Sex'])
 test_X['Sex'] = label_enc.fit_transform(test_X['Sex'])
-
 train_X['Embarked'] = label_enc.fit_transform(train_X['Embarked'])
 test_X['Embarked'] = label_enc.fit_transform(test_X['Embarked'])
-
-
-
-
 # Training the algorithm on training set
 model = LogisticRegression()
 model.fit(train_X, train_y)
 prediction = model.predict(test_X)
-
 print(prediction)
 '''
 
