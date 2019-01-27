@@ -49,25 +49,28 @@ test_X:     (418 x 7)
 prediction: (418 x 1)
 '''
 
-
+# Encoding Text to numerical values
+label_encoder = LabelEncoder()
+for col in train_X:
+    if train_X[col].dtype == 'O':
+        train_X[col] = label_encoder.fit_transform(train_X[col])
+    else:
+       pass
+for col in test_X:
+    if test_X[col].dtype == 'O':
+        test_X[col] = label_encoder.fit_transform(test_X[col])
+    else:
+        pass
 
 
 '''
 To-Do
-1. Encode all text values to numerical
-2. Select appropriate models
-3. Fit the model and train it using Training Data
-4. Predict the values on Test Data
+1. Select appropriate models
+2. Fit the model and train it using Training Data
+3. Predict the values on Test Data
 '''
 
-
 '''
-# Encoding the 'Sex' and 'Embarked' Columns to base everything with Integers
-label_enc = LabelEncoder()
-train_X['Sex'] = label_enc.fit_transform(train_X['Sex'])
-test_X['Sex'] = label_enc.fit_transform(test_X['Sex'])
-train_X['Embarked'] = label_enc.fit_transform(train_X['Embarked'])
-test_X['Embarked'] = label_enc.fit_transform(test_X['Embarked'])
 # Training the algorithm on training set
 model = LogisticRegression()
 model.fit(train_X, train_y)
