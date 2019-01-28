@@ -1,11 +1,9 @@
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import warnings
 warnings.simplefilter('ignore')
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import Imputer
+from keras.models import Sequential
+from keras.layers import Dense
 
 # Loading the data set
 train_data = pd.read_csv("Data/train.csv")
@@ -62,20 +60,33 @@ for col in test_X:
     else:
         pass
 
+# Selecting the model
+model = Sequential()
 
-'''
-To-Do
-1. Select appropriate models
-2. Fit the model and train it using Training Data
-3. Predict the values on Test Data
-'''
+# Input layer
+model.add(Dense(output_dim=14, activation='relu',input_dim=7))
 
-'''
-# Training the algorithm on training set
-model = LogisticRegression()
-model.fit(train_X, train_y)
-prediction = model.predict(test_X)
-print(prediction)
-'''
+# Hidden layers
+model.add(Dense(14, activation='relu'))
 
+# Output layer
+model.add(Dense(1, activation='sigmoid'))
 
+# Compile Model
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# Fit the model
+model.fit(train_X, train_y, epochs=200)
+
+# Model Score
+scores = model.evaluate(train_X, train_y)
+print("\n%s: %.2f%%" %(model.metrics_names[1], scores[1]*100))
+
+# Making prediction
+prediction = model.predict_classes(test_X)
+print(prediction.shape)
+
+# Writing predictions to a csv file - for submission
+submission_data = pd.DataFrame(test_data['PassengerId'])
+submission_data['Survived'] = prediction
+submission_data.to_csv('submissions.csv', sep=",", index=False)
