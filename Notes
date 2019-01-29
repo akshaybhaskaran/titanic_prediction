@@ -1,4 +1,5 @@
-These features doesn't really matter, and does not contribute much to our predictions. So, these can be removed:
+These features doesn't really have an impact on prediction, and so, can be removed:
+    
     > Passenger name
     > Passenger ID
     > Ticket Number or Details
