@@ -1,11 +1,9 @@
-Using the titanic travellers dataset, the objective is to predict which passengers survived the tragedy, and which ones did not.
+# Titanic Survival
+Using the titanic travellers dataset to predict which passengers survived the tragedy, and which ones did not.
 
-This is a Binary Classification problem
+# Dataset
 
-Dataset: https://www.kaggle.com/c/titanic/data
-
-Initially, few models were tried including: RandomForestClassifier, GradientBoosting(Sklearn), XGBClassifier etc. But none of them gave a good score. So, the code in this repository makes use of Keras' Sequential Model with linear stack of layers. 
-
+https://www.kaggle.com/c/titanic/data
 
 
 From the initial data set given, these features doesn't really have an impact on prediction, and so, can be removed:
